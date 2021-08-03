@@ -22,32 +22,32 @@ for nchan = [16]
     ao = amp_offset/volts_fs*2^(res-1)-1;
 	
 	combo = [];
-    clear x
-	x = cell(1,nchan);
+    clear waves
+	waves = cell(1,nchan);
 	for i=1:nchan
         switch fx
             case "sine_poff"
-                x{i} = amp*sin(2*pi*((1/(patt_len/ncycles))*t)-(((i-1)*2*pi/nchan)-pi/2)) + ao*i; % Sine poffset
+                waves{i} = amp*sin(2*pi*((1/(patt_len/ncycles))*t)-(((i-1)*2*pi/nchan)-pi/2)) + ao*i; % Sine poffset
             case "sine"
-                x{i} = amp*sin(2*pi*(1/(patt_len/ncycles))*t) + ao*i; % Sine
+                waves{i} = amp*sin(2*pi*(1/(patt_len/ncycles))*t) + ao*i; % Sine
             case "tri"
-                x{i} = 2*amp/pi*asin( sin(2*pi*(1/(patt_len/ncycles))*t) ) + ao*i; % Triangle
+                waves{i} = 2*amp/pi*asin( sin(2*pi*(1/(patt_len/ncycles))*t) ) + ao*i; % Triangle
             case "dc"
-                x{i} = amp*ones(1,patt_len) + ao*i; % DC
+                waves{i} = amp*ones(1,patt_len) + ao*i; % DC
             case "ramp"
                 y = linspace(-amp,amp,patt_len) + ao*i; % Ramp
                 for j=1:ncycles
-                    x{i} = [x{i},y(1:ncycles:end)];
+                    waves{i} = [waves{i},y(1:ncycles:end)];
                 end
             otherwise
-                x{i} = amp*sin(2*pi*(1/(patt_len/ncycles))*t) + ao*i; % Sine
+                waves{i} = amp*sin(2*pi*(1/(patt_len/ncycles))*t) + ao*i; % Sine
         end 
         
-        combo = vertcat(combo, x{i});
+        combo = vertcat(combo, waves{i});
 	end
 
 	% Reshape into 1 long interleaved array
-	combo2 = reshape(combo,1,nchan*length(x{1}));
+	combo2 = reshape(combo,1,nchan*length(waves{1}));
     
     % Check DIR exists
     if ~exist("DATA", 'dir')
@@ -59,7 +59,9 @@ for nchan = [16]
 	fwrite(fid,combo2,'int16');
 	fclose(fid);
     
-    assignin('base', 'waves', x); % Save variable to Base Workspace
+    assignin('base', 'waves', waves); % Save variable to Base Workspace
     assignin('base', 't', t); % Save variable to Base Workspace
+    
+    plot_waves
 
 end
