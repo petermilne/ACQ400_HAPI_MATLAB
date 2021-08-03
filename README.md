@@ -33,24 +33,11 @@ UUTS = {'acq2106_176','acq2106_054'}
 
 
 2. check_pypath
-C:/ACQ400_HAPI/acq400_hapi
-
-3. edit name_UUTS.m to suit
-```
-global UUTS
-
-%UUTS = {'acq2106_176'}
-UUTS = {'acq2106_176','acq2106_054'}
-%UUTS = {'acq2106_295','acq2106_293','acq2106_294'}
-```
-
-
-2. check_pypath
 ```
 >> check_pypath
 C:/ACQ400_HAPI/acq400_hapi
 ```
-C:/ACQ400_HAPI/acq400_hapi
+
 
 3. edit name_UUTS.m to suit
 ```
@@ -61,11 +48,7 @@ UUTS = {'acq2106_176','acq2106_054'}
 %UUTS = {'acq2106_295','acq2106_293','acq2106_294'}
 ```
 
-
-2. check_pypath
-C:/ACQ400_HAPI/acq400_hapi
-
-3. edit name_UUTS.m to suit and run
+3. edit name_UUTS.m to suit
 ```
 global UUTS
 
@@ -73,7 +56,6 @@ global UUTS
 UUTS = {'acq2106_176','acq2106_054'}
 %UUTS = {'acq2106_295','acq2106_293','acq2106_294'}
 ```
-
 result:
 ```
 >> name_UUTS
@@ -83,7 +65,11 @@ UUTS =
   1×2 cell array
 
     {'acq2106_176'}    {'acq2106_054'}
+```
 
+Basic HAPI test
+
+```
 >> acq400_hello_world
  
 K:\Customer\Acquitek\Langevin\MATLAB>call C:\Users\scott\anaconda3\Scripts\activate base  
