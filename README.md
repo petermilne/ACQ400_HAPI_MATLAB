@@ -10,19 +10,7 @@ Matlab integration with HAPI, allows control of ACQ400 from Matlab(R)
 C:/ACQ400_HAPI/acq400_hapi
 
 3. edit name_UUTS.m to suit
-```python
-global UUTS
-
-%UUTS = {'acq2106_176'}
-UUTS = {'acq2106_176','acq2106_054'}
-%UUTS = {'acq2106_295','acq2106_293','acq2106_294'}
-
-
-2. check_pypath
-C:/ACQ400_HAPI/acq400_hapi
-
-3. edit name_UUTS.m to suit
-```python
+```
 global UUTS
 
 %UUTS = {'acq2106_176'}
@@ -35,7 +23,20 @@ UUTS = {'acq2106_176','acq2106_054'}
 C:/ACQ400_HAPI/acq400_hapi
 
 3. edit name_UUTS.m to suit
-```python
+```
+global UUTS
+
+%UUTS = {'acq2106_176'}
+UUTS = {'acq2106_176','acq2106_054'}
+%UUTS = {'acq2106_295','acq2106_293','acq2106_294'}
+```
+
+
+2. check_pypath
+C:/ACQ400_HAPI/acq400_hapi
+
+3. edit name_UUTS.m to suit
+```
 global UUTS
 
 %UUTS = {'acq2106_176'}
@@ -52,7 +53,7 @@ C:/ACQ400_HAPI/acq400_hapi
 C:/ACQ400_HAPI/acq400_hapi
 
 3. edit name_UUTS.m to suit
-```python
+```
 global UUTS
 
 %UUTS = {'acq2106_176'}
@@ -65,7 +66,7 @@ UUTS = {'acq2106_176','acq2106_054'}
 C:/ACQ400_HAPI/acq400_hapi
 
 3. edit name_UUTS.m to suit and run
-```python
+```
 global UUTS
 
 %UUTS = {'acq2106_176'}
